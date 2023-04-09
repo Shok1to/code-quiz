@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEader -->
+    <div id="display-container">
+    <header>
+        <a href="">View high scores</a>
+        <p>Time left: <span id="time">70s</span></p>
+    </header>
+
+    <main>
+        <!-- Start View -->
+        <section id="start-quiz">
+            <h1>Code Quiz Challenge</h1>
+            <p>Hit button below to start quiz</p>
+            <button id="start-btn">start quiz</button>
+        </section>
+
+        <!-- Quiz View -->
+        <section id="quiz" style="display:none;">
+            <h2 id="question"></h2>
+            <div id="answer"></div>
+              <!-- <button class="answer-btn">Answer 1</button>
+              <button class="answer-btn">Answer 2</button>
+              <button class="answer-btn">Answer 3</button>
+              <button class="answer-btn">Answer 4</button> -->
+        </section>
+
+        <!-- End View -->
+        <section id="end-quiz" style="display: none;">
+            <h3>The quiz End</h3>
+            <p>Initials: </p>
+            <input id="initials" />
+            <button id="submit">submit</button>
+        </section>
+            
+
+    </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
