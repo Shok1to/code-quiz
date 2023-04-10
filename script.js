@@ -3,6 +3,7 @@ var startBtn = document.querySelector('#start-btn');
 var quiz = document.querySelector('#quiz');
 var questionElement = document.getElementById('question');
 var answerElement = document.querySelector('#answer');
+var restart = document.getElementById('restart')
 var timeElement = document.querySelector("#time");
 var countdown;
 var count = 70;
@@ -12,38 +13,61 @@ var qIndex = 0;
 var questions =[
     {
         
-        question:'What is 2 + 2',
+        question:'There are how many coding language?',
         answers: [
-            { text:'4', correct: true },
-            { text:'3', correct: false },
-            { text:'2', correct: false },
             { text:'1', correct: false },
+            { text:'2', correct: false },
+            { text:'3', correct: false },
+            { text:'More than 3', correct: true },
 
         ],
-        correct: '4'
+        correct: 'More than 3'
     },
     {
-        question:'What is 3 + 3',
+        question:'HTML stands for - ',
         answers: [
-            { text:'6', correct: true },
-            { text:'3', correct: false },
-            { text:'2', correct: false },
-            { text:'1', correct: false },
+            { text:'HyperText Markup Language', correct: true },
+            { text:'HighText Marketing Language', correct: false },
+            { text:'HyperText Links Markup Language', correct: false },
+            { text:'None of the above', correct: false },
 
         ],
-        correct: '6'
+        correct: 'HyperText Markup Language'
     },
     {
-        question:'What is 4 + 4',
+        question:'CSS stands for -',
         answers: [
-            { text:'8', correct: true },
-            { text:'3', correct: false },
-            { text:'2', correct: false },
-            { text:'1', correct: false },
+            { text:'Color and style sheets', correct: false },
+            { text:'Cascade style sheets', correct: false },
+            { text:'Cascading style sheets', correct: true },
+            { text:'None of the above', correct: false },
 
         ],
-        correct: '8'
+        correct: 'Cascading style sheets'
+    },
+    {
+        question:'What language defines the behavior of the web page?',
+        answers: [
+            { text:'HTML', correct: false },
+            { text:'CSS', correct: false },
+            { text:'Javascript', correct: true },
+            { text:'Python', correct: false },
+
+        ],
+        correct: 'Javascript'
+    },
+    {
+        question:'How do you declare a Javascript variable?',
+        answers: [
+            { text:'variable coffeeOrder', correct: false },
+            { text:'v coffeeOrder', correct: false },
+            { text:'var coffeeOrder', correct: true },
+            { text:'v coffeeOrder', correct: false },
+
+        ],
+        correct: 'var coffeeOrder'
     }
+   
 
 ]
 
@@ -94,18 +118,16 @@ function checkAnswer() {
     console.log('This: ', this.innerText);
     console.log('Use qIndex', questions[qIndex].correct);
 
-    if (questions[qIndex].correct === this.innerText) {
-        console.log('correct')
-    } else {
-        console.log('wrong')
-        count-=5;
-        time.innerHTML = `${count}s`;
-        if (count <= 0) {
-            endTheQuiz();
-        }
-    }
+    
 
     qIndex ++;
+
+    populateQuestion();
+
+    if ( populateQuestion() == 0) {
+        endTheQuiz();
+    }
+    
 
     // Make sure there are questions left
 
