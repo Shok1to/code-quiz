@@ -105,11 +105,11 @@ function populateQuestion(){
     // add a class for styling purposes
     btnElement.classList.add('answer-btn');
     //add click listener
-    btnElement.addEventListener('click', checkAnswer(event) {
+     btnElement.addEventListener('click', function checkAnswer(event) {
         if (event.target.innerHTML == insertCodeForCurrentAnswerHere) {
             event.target.style.backgroundColor = "green";
-        } else {
-            do opposite
+        } else (event.target.innerHTML != insertCodeForCurrentAnswerHere){
+            event.target.style.backgroundColor = "red";
         }
     }
     )
