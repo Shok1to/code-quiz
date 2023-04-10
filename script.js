@@ -105,19 +105,27 @@ function populateQuestion(){
     // add a class for styling purposes
     btnElement.classList.add('answer-btn');
     //add click listener
-    btnElement.addEventListener('click', checkAnswer)
+    btnElement.addEventListener('click', checkAnswer(event) {
+        if (event.target.innerHTML == insertCodeForCurrentAnswerHere) {
+            event.target.style.backgroundColor = "green";
+        } else {
+            do opposite
+        }
+    }
+    )
     // append to page
     answerElement.append(btnElement);
-
+ 
     
   })
-
+  
 }
 
 function checkAnswer() {
     console.log('This: ', this.innerText);
     console.log('Use qIndex', questions[qIndex].correct);
-
+ 
+    
     
 
     qIndex ++;
@@ -134,11 +142,6 @@ function checkAnswer() {
 
     
 
-    // Make sure there are questions left
-
-    // If yes, move on to next question by calling populate question
-
-    // If no, call end Quiz
 }
 
 function endTheQuiz() {
