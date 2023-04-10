@@ -9,8 +9,7 @@ body{
 }
 
 
-#start-quiz, #quiz{
-    /* position: absolute; */
+#start-quiz, #quiz, #end-quiz{
     top: 0;
     width: 100%;
     height: 100%;

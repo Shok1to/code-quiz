@@ -3,7 +3,7 @@ var startBtn = document.querySelector('#start-btn');
 var quiz = document.querySelector('#quiz');
 var questionElement = document.getElementById('question');
 var answerElement = document.querySelector('#answer');
-var restart = document.getElementById('restart')
+var endQuiz = document.getElementById('end-quiz')
 var timeElement = document.querySelector("#time");
 var countdown;
 var count = 70;
@@ -122,11 +122,16 @@ function checkAnswer() {
 
     qIndex ++;
 
-    populateQuestion();
-
-    if ( populateQuestion() == 0) {
+    if ( questions.length == qIndex) {
         endTheQuiz();
+    }else{
+        populateQuestion();
     }
+    
+    if ( questions.length == qIndex) {
+        quiz.style.display = "none";
+    }
+
     
 
     // Make sure there are questions left
@@ -138,7 +143,14 @@ function checkAnswer() {
 
 function endTheQuiz() {
     clearInterval(countdown);
+
+    
+    endQuiz.style.display = "flex";
+    
+    
 }
+
+
 
 function saveScore() {}
 
