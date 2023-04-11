@@ -3,6 +3,7 @@ var startBtn = document.querySelector('#start-btn');
 var quiz = document.querySelector('#quiz');
 var questionElement = document.getElementById('question');
 var answerElement = document.querySelector('#answer');
+var displayAnswer = document.getElementById('displayAnswer')
 var endQuiz = document.getElementById('end-quiz')
 var timeElement = document.querySelector("#time");
 var countdown;
@@ -105,12 +106,15 @@ function populateQuestion(){
     // add a class for styling purposes
     btnElement.classList.add('answer-btn');
     //add click listener
-    btnElement.addEventListener('click', function checkAnswer(event) {
+    btnElement.addEventListener('click', function (event) {
         if (event.target.innerHTML == questions[qIndex].correct) {
             event.target.style.backgroundColor = "green";
         } else {
             event.target.style.backgroundColor = "red";
         }
+        setTimeout(function(){
+            checkAnswer(event);
+        }, 500); 
     });
     
     // append to page
@@ -124,7 +128,7 @@ function populateQuestion(){
 function checkAnswer() {
     console.log('This: ', this.innerText);
     console.log('Use qIndex', questions[qIndex].correct);
- 
+  
     
     
 
@@ -152,7 +156,6 @@ function endTheQuiz() {
     
     
 }
-
 
 
 function saveScore() {}
