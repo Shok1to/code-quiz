@@ -105,14 +105,14 @@ function populateQuestion(){
     // add a class for styling purposes
     btnElement.classList.add('answer-btn');
     //add click listener
-     btnElement.addEventListener('click', function checkAnswer(event) {
-        if (event.target.innerHTML == insertCodeForCurrentAnswerHere) {
+    btnElement.addEventListener('click', function checkAnswer(event) {
+        if (event.target.innerHTML == questions[qIndex].correct) {
             event.target.style.backgroundColor = "green";
-        } else (event.target.innerHTML != insertCodeForCurrentAnswerHere){
+        } else {
             event.target.style.backgroundColor = "red";
         }
-    }
-    )
+    });
+    
     // append to page
     answerElement.append(btnElement);
  
