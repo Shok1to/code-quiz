@@ -8,6 +8,7 @@ var endQuiz = document.getElementById('end-quiz')
 var timeElement = document.querySelector("#time");
 var countdown;
 var count = 70;
+var highScoresStorage = localStorage.getItem("highScores");
 
 var qIndex = 0;
 
@@ -109,20 +110,26 @@ function populateQuestion(){
     btnElement.addEventListener('click', function (event) {
         if (event.target.innerHTML == questions[qIndex].correct) {
             event.target.style.backgroundColor = "green";
+            displayAnswer.textContent = "Correct"
+            
         } else {
             event.target.style.backgroundColor = "red";
+            displayAnswer.textContent = "Incorrect"
         }
+    
         setTimeout(function(){
             checkAnswer(event);
         }, 500); 
+
     });
+    displayAnswer.textContent = ""
     
     // append to page
     answerElement.append(btnElement);
  
     
   })
-  
+  localStorage.setItem("highScores", scoreCounter);
 }
 
 function checkAnswer() {
@@ -159,7 +166,7 @@ function endTheQuiz() {
 
 
 function saveScore() {}
-
+// 
 
 
 
