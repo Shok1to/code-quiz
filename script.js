@@ -9,7 +9,8 @@ var timeElement = document.querySelector("#time");
 var countdown;
 var count = 70;
 var highScoresStorage = localStorage.getItem("highScores");
-
+var input = document.getElementById("myInput")
+var button = document.getElementById('yourButton');
 var qIndex = 0;
 
 var questions =[
@@ -76,7 +77,7 @@ var questions =[
 function startTheQuiz() {
     // Hide the start section
     startQuiz.style.display = "none";
-    // To Do: Sho the question section
+    // To Do: Show the question section
     quiz.style.display = "flex";
 
     // Start our timer
@@ -102,8 +103,6 @@ function populateQuestion(){
     var btnElement = document.createElement("button");
     // give it text content
     btnElement.textContent = answer.text;
-    // add true/false value
-    // btnElement.value = answer.correct;
     // add a class for styling purposes
     btnElement.classList.add('answer-btn');
     //add click listener
@@ -129,7 +128,7 @@ function populateQuestion(){
  
     
   })
-  localStorage.setItem("highScores", scoreCounter);
+  
 }
 
 function checkAnswer() {
@@ -165,9 +164,34 @@ function endTheQuiz() {
 }
 
 
-function saveScore() {}
-// 
+function saveScore() {
 
+  
+    
+        var initials = document.getElementById("initials").value;
+        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
+        if (!initials) {
+            alert("You must include your initials to submit your score!")
+            return
+        }
+
+        var newScore = {
+            initials: initials,
+            score: count
+        }
+
+        highScores.push(newScore);
+
+        localStorage.setItem("highScores", JSON.stringify(highScores))
+
+        window.location.href = "./highscore.html";
+    
+}
+
+document.getElementById("submit").addEventListener("click", saveScore)
 
 startBtn.addEventListener('click', startTheQuiz);
+
+
+
