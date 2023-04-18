@@ -114,7 +114,8 @@ function populateQuestion(){
             
         } else {
             event.target.style.backgroundColor = "red";
-            displayAnswer.textContent = "Incorrect"
+            displayAnswer.textContent = "Incorrect";
+            count -= 5;
         }
     
         setTimeout(function(){

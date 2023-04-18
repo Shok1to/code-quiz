@@ -1,6 +1,6 @@
 var scoreList = document.getElementById('scores-list');
-var resetScores = document.getElementById('clear-score');
-
+var clearScores = document.getElementById('clear-score');
+var gameRestart = document.getElementById('restart')
 
 
 
@@ -24,3 +24,13 @@ function resetScores(){
     
 
 }
+
+clearScores.addEventListener('click',resetScores)
+
+
+function restart(){
+    window.location.reload();
+}
+
+gameRestart.addEventListener("click",restart)
+
