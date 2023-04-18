@@ -1,11 +1,11 @@
 var scoreList = document.getElementById('scores-list');
-
+var resetScores = document.getElementById('clear-score');
 
 
 
 
 function populateScores() {
-    var highScores = JSON.parse(localStorage.getItem('highScores'))
+    var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
     for (let i = 0; i < highScores.length; i++) {
         // Create a li element
         var liEl = document.createElement('li')
@@ -20,6 +20,7 @@ function populateScores() {
 populateScores();
 
 function resetScores(){
-    document.getElementById('Score').reset();
+    localStorage.clear("highScores")
+    
 
 }

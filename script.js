@@ -12,6 +12,7 @@ var highScoresStorage = localStorage.getItem("highScores");
 var input = document.getElementById("myInput")
 var button = document.getElementById('yourButton');
 var qIndex = 0;
+var currentScore = document.getElementById("score");
 
 var questions =[
     {
@@ -142,6 +143,7 @@ function checkAnswer() {
 
     if ( questions.length == qIndex) {
         endTheQuiz();
+
     }else{
         populateQuestion();
     }
@@ -157,9 +159,9 @@ function checkAnswer() {
 function endTheQuiz() {
     clearInterval(countdown);
 
-    
     endQuiz.style.display = "flex";
     
+    currentScore.textContent = count;
     
 }
 
