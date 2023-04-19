@@ -1,3 +1,4 @@
+// Global variables
 var startQuiz = document.querySelector('#start-quiz');
 var startBtn = document.querySelector('#start-btn');
 var quiz = document.querySelector('#quiz');
@@ -7,13 +8,14 @@ var displayAnswer = document.getElementById('displayAnswer')
 var endQuiz = document.getElementById('end-quiz')
 var timeElement = document.querySelector("#time");
 var countdown;
-var count = 70;
+var count = 60;
 var highScoresStorage = localStorage.getItem("highScores");
 var input = document.getElementById("myInput")
 var button = document.getElementById('yourButton');
 var qIndex = 0;
 var currentScore = document.getElementById("score");
 
+// Questions Array
 var questions =[
     {
         
@@ -75,10 +77,11 @@ var questions =[
 
 ]
 
+// Start quiz function
 function startTheQuiz() {
     // Hide the start section
     startQuiz.style.display = "none";
-    // To Do: Show the question section
+    // Show the question section
     quiz.style.display = "flex";
 
     // Start our timer
@@ -87,6 +90,7 @@ function startTheQuiz() {
     time.innerHTML = `${count}s`;
     if (count == 0) {
         endTheQuiz();
+        quiz.style.display = "none";
       }
     }, 1000);
 
@@ -136,9 +140,6 @@ function populateQuestion(){
 function checkAnswer() {
     console.log('This: ', this.innerText);
     console.log('Use qIndex', questions[qIndex].correct);
-  
-    
-    
 
     qIndex ++;
 
@@ -152,8 +153,6 @@ function checkAnswer() {
     if ( questions.length == qIndex) {
         quiz.style.display = "none";
     }
-
-    
 
 }
 
@@ -169,12 +168,10 @@ function endTheQuiz() {
 
 function saveScore() {
 
-  
-    
-        var initials = document.getElementById("initials").value;
-        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var initials = document.getElementById("initials").value;
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-        if (!initials) {
+         if (!initials) {
             alert("You must include your initials to submit your score!")
             return
         }

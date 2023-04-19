@@ -1,3 +1,4 @@
+// Global variables
 var scoreList = document.getElementById('scores-list');
 var clearScores = document.getElementById('clear-score');
 var gameRestart = document.getElementById('restart')
@@ -19,18 +20,19 @@ function populateScores() {
 
 populateScores();
 
+// Reset scores
 function resetScores(){
     localStorage.clear("highScores")
     
-
 }
 
 clearScores.addEventListener('click',resetScores)
 
-
-function restart(){
-    window.location.reload();
-}
+// Restart the quiz
+function restart(e) {
+    e.preventDefault()
+    window.location.href = './index.html';
+  }
 
 gameRestart.addEventListener("click",restart)
 
