@@ -17,6 +17,7 @@
 
 - Display correct and wrong answer by text and color
 <img alt src="./Assets/Answer-btn.png" />
+
 - When it is picked wrong answer,five second is deducted
 
 - When all questions are answered or the timer reaches 0,the quiz end
